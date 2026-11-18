@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LabelLens | AI Food Intelligence</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="navbar">
+        <a href="#" class="logo">
+            <span class="logo-icon">L</span>
+            <span>Label<span class="teal">Lens</span></span>
+        </a>
+
+        <span class="nav-tag">AI FOOD INTELLIGENCE</span>
+    </header>
+
+    <main class="container">
+
+        <!-- WELCOME SECTION -->
+        <section class="welcome">
+            <span class="eyebrow">SMARTER FOOD CHOICES</span>
+
+            <h1>
+                Understand what's <span class="teal">in your food.</span>
+            </h1>
+
+            <p>
+                Explore ingredients, understand nutrition and make
+                informed food choices with AI.
+            </p>
+        </section>
+
+        <!-- MAIN WORKSPACE -->
+        <section class="workspace">
+
+            <!-- LEFT COLUMN: FOOD ANALYSIS -->
+            <div class="analysis-column">
+
+                <!-- INPUT PANEL -->
+                <div class="input-panel">
+
+                    <h2>Analyse your food</h2>
+
+                    <p class="section-subtitle">
+                        Choose how you want to analyse your food.
+                    </p>
+
+                    <!-- ANALYSIS TABS -->
+                    <div class="tabs">
+                        <button class="tab active" data-mode="packaged">
+                            Food Label
+                        </button>
+
+                        <button class="tab" data-mode="restaurant">
+                            Restaurant
+                        </button>
+
+                        <button class="tab" data-mode="homemade">
+                            Homemade
+                        </button>
+                    </div>
+
+                    <!-- PACKAGED FOOD -->
+                    <div id="packaged-section" class="mode-section">
+
+                        <div class="upload-area" id="packaged-upload">
+
+                            <div class="upload-icon">📦</div>
+
+                            <h3>Upload food label</h3>
+
+                            <p>
+                                Choose an image of the ingredients or nutrition label.
+                            </p>
+
+                            <label for="packaged-file" class="upload-button">
+                                Choose Image
+                            </label>
+
+                            <input
+                                type="file"
+                                id="packaged-file"
+                                accept="image/*"
+                                hidden
+                            >
+
+                            <p class="file-name" id="packaged-name">
+                                PNG, JPG or JPEG
+                            </p>
+
+                        </div>
+
+                        <!-- PASTE LABEL TEXT -->
+                        <div class="recipe-form" style="margin-top: 24px;">
+
+                            <label for="packaged-text">
+                                Or paste food label text
+                            </label>
+
+                            <textarea
+                                id="packaged-text"
+                                rows="7"
+                                placeholder="Paste ingredients and nutrition facts here...
+
+Example:
+
+Serving Size: 30g
+Calories: 160 kcal
+Total Fat: 10g
+Total Sugars: 8g
+Protein: 3g
+Sodium: 180mg
+
+Ingredients: Wheat Flour, Sugar, Palm Oil, Cocoa Powder, Milk Solids."
+                            ></textarea>
+
+                            <p class="hint">
+                                Paste the ingredients or nutrition information
+                                directly if you don't have an image.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- RESTAURANT -->
+                    <div id="restaurant-section" class="mode-section hidden">
+
+                        <div class="upload-area">
+
+                            <div class="upload-icon">🍽️</div>
+
+                            <h3>Upload restaurant menu</h3>
+
+                            <p>
+                                Upload a menu photograph so LabelLens can
+                                examine the dishes.
+                            </p>
+
+                            <label for="restaurant-file" class="upload-button">
+                                Choose Menu
+                            </label>
+
+                            <input
+                                type="file"
+                                id="restaurant-file"
+                                accept="image/*"
+                                hidden
+                            >
+
+                            <p class="file-name" id="restaurant-name">
+                                PNG, JPG or JPEG
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- HOMEMADE -->
+                    <div id="homemade-section" class="mode-section hidden">
+
+                        <div class="recipe-form">
+
+                            <label for="recipe-name">
+                                Recipe name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="recipe-name"
+                                placeholder="e.g. Vegetable Fried Rice"
+                            >
+
+                            <label for="ingredients">
+                                Ingredients and quantities
+                            </label>
+
+                            <textarea
+                                id="ingredients"
+                                rows="5"
+                                placeholder="e.g.
+1 cup cooked rice
+2 eggs
+1 tomato
+1 onion"
+                            ></textarea>
+
+                            <p class="hint">
+                                Include approximate quantities for better
+                                nutritional estimates.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ANALYSE BUTTON -->
+                    <button id="analyse-btn" class="analyse-button">
+                        ✨ Analyse with AI
+                    </button>
+
+                </div>
+
+                <!-- RESULTS PANEL -->
+                <div class="results-panel">
+
+                    <div class="results-heading">
+
+                        <div>
+                            <span class="eyebrow">YOUR FOOD INSIGHTS</span>
+                            <h2>AI Analysis</h2>
+                        </div>
+
+                        <span class="status" id="analysis-status">
+                            Awaiting input
+                        </span>
+
+                    </div>
+
+                    <!-- EMPTY STATE -->
+                    <div id="empty-state" class="empty-state">
+
+                        <div class="empty-icon">✦</div>
+
+                        <h3>Your analysis starts here</h3>
+
+                        <p>
+                            Upload a food label, paste its text,
+                            upload a restaurant menu or enter your
+                            homemade recipe to see your food insights.
+                        </p>
+
+                    </div>
+
+                    <!-- AI RESULTS -->
+                    <div id="results-content" class="hidden">
+
+                        <!-- RESULT INTRODUCTION -->
+                        <div class="result-intro">
+
+                            <div>
+                                <span class="eyebrow">ANALYSIS COMPLETE</span>
+
+                                <h3 id="result-title">
+                                    Food Analysis
+                                </h3>
+
+                                <p id="result-description">
+                                    Your food insights are ready.
+                                </p>
+                            </div>
+
+                            <span class="result-check">✓</span>
+
+                        </div>
+
+                        <!-- BLOOD SUGAR AWARENESS -->
+                        <div class="insight-card blood-sugar-card">
+
+                            <div class="insight-card-heading">
+                                <span class="insight-number">01</span>
+
+                                <div>
+                                    <h4>Blood Sugar Awareness</h4>
+                                    <p>
+                                        Understand how this food may affect blood glucose
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                id="blood-sugar-results"
+                                class="blood-sugar-results">
+                            </div>
+
+                        </div>
+
+                        <!-- INGREDIENTS -->
+                        <div class="insight-card">
+
+                            <div class="insight-card-heading">
+
+                                <span class="insight-number">02</span>
+
+                                <div>
+                                    <h4>Ingredients</h4>
+                                    <p>What's inside your food</p>
+                                </div>
+
+                            </div>
+
+                            <div
+                                id="ingredient-results"
+                                class="ingredient-results">
+                            </div>
+
+                        </div>
+
+                        <!-- NUTRITION -->
+                        <div class="insight-card">
+
+                            <div class="insight-card-heading">
+
+                                <span class="insight-number">03</span>
+
+                                <div>
+                                    <h4>Nutrition breakdown</h4>
+                                    <p>Understanding the numbers</p>
+                                </div>
+
+                            </div>
+
+                            <div
+                                id="nutrition-results"
+                                class="nutrition-results">
+                            </div>
+
+                        </div>
+
+                        <!-- THINGS TO NOTICE -->
+                        <div class="insight-card">
+
+                            <div class="insight-card-heading">
+
+                                <span class="insight-number">04</span>
+
+                                <div>
+                                    <h4>Things to notice</h4>
+                                    <p>Important food information</p>
+                                </div>
+
+                            </div>
+
+                            <div
+                                id="notice-results"
+                                class="notice-results">
+                            </div>
+
+                        </div>
+
+                        <!-- QUICK TAKEAWAY -->
+                        <div class="takeaway-card">
+
+                            <span class="takeaway-label">
+                                ✦ QUICK TAKEAWAY
+                            </span>
+
+                            <p id="takeaway-result">
+                                Your food summary will appear here.
+                            </p>
+
+                        </div>
+
+                        <!-- ORIGINAL AI RESPONSE -->
+                        <div id="result-text" class="hidden"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: AI CHATBOT -->
+            <aside class="chat-section">
+
+                <div class="chat-title">
+
+                    <span>✦</span>
+
+                    <div>
+                        <h3>Ask LabelLens</h3>
+                        <p>Your personal AI food assistant</p>
+                    </div>
+
+                </div>
+
+                <!-- CHAT MESSAGES -->
+                <div id="chat-messages" class="chat-messages">
+
+                    <div class="bot-message">
+                        Hi! I'm LabelLens. Analyse a food item
+                        and ask me anything about it.
+                    </div>
+
+                </div>
+
+                <!-- CHAT INPUT -->
+                <div class="chat-input">
+
+                    <input
+                        type="text"
+                        id="chat-input"
+                        placeholder="Ask about ingredients, nutrition..."
+                    >
+
+                    <button id="send-btn" aria-label="Send message">
+                        ➤
+                    </button>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>
+                LabelLens © 2026 · Making food information easier
+                to understand.
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

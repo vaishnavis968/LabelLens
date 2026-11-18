@@ -1,0 +1,863 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --teal: #0d827b;
+    --teal-dark: #08645f;
+    --teal-light: #e8f5f3;
+    --background: #f7faf9;
+    --text: #1d302f;
+    --muted: #788b89;
+    --border: #e5eeec;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.navbar {
+    height: 76px;
+    padding: 0 8%;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.logo-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--teal);
+    color: white;
+    border-radius: 11px;
+    display: grid;
+    place-items: center;
+}
+
+.teal {
+    color: var(--teal);
+}
+
+.nav-tag {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 55px 25px 25px;
+}
+
+.welcome {
+    margin-bottom: 35px;
+}
+
+.eyebrow {
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.welcome h1 {
+    font-size: clamp(30px, 4vw, 43px);
+    margin: 12px 0;
+    letter-spacing: -1.5px;
+}
+
+.welcome p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 22px;
+    align-items: stretch;
+}
+
+.input-panel,
+.results-panel {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 27px;
+    box-shadow: 0 5px 25px rgba(25, 70, 65, 0.035);
+}
+
+.input-panel h2,
+.results-panel h2 {
+    font-size: 20px;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+.tabs {
+    display: flex;
+    background: #f2f6f5;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 25px 0;
+    gap: 4px;
+}
+
+.tab {
+    flex: 1;
+    border: none;
+    padding: 11px 5px;
+    background: transparent;
+    border-radius: 8px;
+    color: #71817f;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.tab.active {
+    background: white;
+    color: var(--teal);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.mode-section {
+    min-height: 255px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.upload-area {
+    min-height: 240px;
+    border: 1.5px dashed #b9d7d2;
+    background: #f9fcfb;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.upload-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.upload-area h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.upload-area p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.upload-button {
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    border-radius: 8px;
+    padding: 11px 19px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 17px;
+    cursor: pointer;
+}
+
+.file-name {
+    margin-top: 12px;
+}
+
+.recipe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.recipe-form label {
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 7px;
+}
+
+.recipe-form input,
+.recipe-form textarea,
+.chat-input input {
+    width: 100%;
+    border: 1px solid var(--border);
+    background: #fbfdfc;
+    border-radius: 9px;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    resize: vertical;
+}
+
+.recipe-form input:focus,
+.recipe-form textarea:focus,
+.chat-input input:focus {
+    border-color: var(--teal);
+}
+
+.hint {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.analyse-button {
+    width: 100%;
+    background: var(--teal);
+    color: white;
+    border: none;
+    border-radius: 9px;
+    padding: 15px;
+    margin-top: 15px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.analyse-button:hover {
+    background: var(--teal-dark);
+    transform: translateY(-1px);
+}
+
+.results-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.results-heading h2 {
+    margin-top: 8px;
+}
+
+.status {
+    background: #f1f5f4;
+    color: var(--muted);
+    padding: 7px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.empty-state {
+    min-height: 255px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+}
+
+.empty-icon {
+    width: 55px;
+    height: 55px;
+    background: var(--teal-light);
+    color: var(--teal);
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    font-size: 27px;
+    margin-bottom: 17px;
+}
+
+.empty-state h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    max-width: 280px;
+}
+
+#results-content {
+    margin: 22px 0;
+}
+
+#results-content h3 {
+    margin-bottom: 8px;
+}
+
+#results-content > p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.result-card {
+    background: #f7faf9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.result-card h4 {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.result-card pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #526562;
+}
+
+.chat-section {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-top: 15px;
+}
+
+.chat-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.chat-title > span {
+    width: 37px;
+    height: 37px;
+    background: var(--teal-light);
+    color: var(--teal);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+}
+
+.chat-title h3 {
+    font-size: 14px;
+}
+
+.chat-title p {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px;
+}
+
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 17px 0;
+}
+
+.bot-message,
+.user-message {
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 12px;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+.bot-message {
+    background: #f0f6f5;
+    align-self: flex-start;
+}
+
+.user-message {
+    background: var(--teal);
+    color: white;
+    align-self: flex-end;
+}
+
+.chat-input {
+    display: flex;
+    gap: 8px;
+}
+
+.chat-input button {
+    width: 43px;
+    min-width: 43px;
+    border: none;
+    border-radius: 9px;
+    background: var(--teal);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 35px 10px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+@media (max-width: 800px) {
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding-top: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-tag {
+        font-size: 9px;
+    }
+
+    .input-panel,
+    .results-panel {
+        padding: 19px;
+    }
+
+    .tab {
+        font-size: 10px;
+    }
+}
+
+/* =====================================
+   LABELLENS FOOD INSIGHTS DASHBOARD
+===================================== */
+
+.result-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.result-intro h3 {
+    font-size: 22px;
+    margin: 8px 0;
+    color: #202b2b;
+}
+
+.result-intro p {
+    color: #718080;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.result-check {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #e1f5ef;
+    color: #0d9488;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.nutrition-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.highlight-card {
+    background: #eaf7f4;
+    border: 1px solid #d5eee7;
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.highlight-label {
+    color: #58736d;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.highlight-value {
+    color: #087f73;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.insight-card {
+    background: #ffffff;
+    border: 1px solid #e8eeee;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 18px 0;
+    box-shadow: 0 3px 12px rgba(25, 55, 50, 0.035);
+}
+
+.insight-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 18px;
+}
+
+.insight-number {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    background: #e6f5f1;
+    color: #0d9488;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.insight-card-heading h4 {
+    color: #263535;
+    font-size: 16px;
+    margin: 0 0 4px;
+}
+
+.insight-card-heading p {
+    color: #899696;
+    font-size: 12px;
+    margin: 0;
+}
+
+.ingredient-results {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.ingredient-item {
+    padding: 14px;
+    background: #f7faf9;
+    border: 1px solid #edf1ef;
+    border-radius: 12px;
+}
+
+.ingredient-name {
+    color: #253b38;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.ingredient-description {
+    color: #6d7b78;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.nutrition-results {
+    display: flex;
+    flex-direction: column;
+}
+
+.nutrition-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 2px;
+    border-bottom: 1px solid #edf1ef;
+}
+
+.nutrition-row:last-child {
+    border-bottom: none;
+}
+
+.nutrition-label {
+    color: #647370;
+    font-size: 14px;
+}
+
+.nutrition-value {
+    color: #263b37;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.nutrition-note {
+    color: #74827f;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.notice-results {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.notice-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 13px;
+    background: #fff9ed;
+    border: 1px solid #f6ebd4;
+    border-radius: 11px;
+}
+
+.notice-icon {
+    color: #d18a27;
+    font-size: 22px;
+    line-height: 1;
+}
+
+.notice-description {
+    color: #756346;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.takeaway-card {
+    padding: 21px;
+    margin: 20px 0;
+    border-radius: 15px;
+    background: #eaf7f4;
+    border: 1px solid #d5eee7;
+}
+
+.takeaway-label {
+    display: block;
+    color: #087f73;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+    margin-bottom: 10px;
+}
+
+.takeaway-card p {
+    color: #34534c;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .ingredient-results {
+        grid-template-columns: 1fr;
+    }
+
+    .insight-card {
+        padding: 16px;
+    }
+
+    .result-intro h3 {
+        font-size: 19px;
+    }
+
+    .highlight-value {
+        font-size: 22px;
+    }
+}
+/* BLOOD SUGAR AWARENESS */
+
+.blood-sugar-card {
+    margin-top: 20px;
+}
+
+.blood-sugar-results {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.blood-sugar-item {
+    padding: 14px 16px;
+    background: #f0f8f7;
+    border: 1px solid #dceeea;
+    border-radius: 12px;
+    color: #344b49;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.blood-sugar-item strong {
+    color: #167d75;
+}
+
+@media (max-width: 600px) {
+    .blood-sugar-item {
+        padding: 12px;
+        font-size: 13px;
+    }
+}
+
+/* =====================================
+   LABELLENS - TWO COLUMN DASHBOARD
+===================================== */
+
+/* Main workspace */
+.workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(300px, 0.85fr);
+    gap: 24px;
+    align-items: start;
+}
+
+/* Left side: input + analysis */
+.analysis-column {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    min-width: 0;
+}
+
+.input-panel,
+.results-panel {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Right side: chatbot */
+.chat-section {
+    position: sticky;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 22px;
+    margin: 0;
+    min-width: 0;
+    min-height: 520px;
+    height: calc(100vh - 120px);
+    max-height: 760px;
+    box-shadow: 0 5px 25px rgba(25, 70, 65, 0.045);
+}
+
+/* Chat header */
+.chat-title {
+    flex-shrink: 0;
+    padding-bottom: 17px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Scrollable chat messages */
+.chat-messages {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    padding: 18px 3px;
+    margin: 0;
+}
+
+/* Chat message appearance */
+.bot-message,
+.user-message {
+    max-width: 90%;
+    padding: 13px 15px;
+    border-radius: 13px;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.bot-message {
+    background: #f0f6f5;
+    color: var(--text);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.user-message {
+    background: var(--teal);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+/* Chat input stays at the bottom */
+.chat-input {
+    flex-shrink: 0;
+    display: flex;
+    gap: 9px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+}
+
+.chat-input input {
+    min-width: 0;
+    flex: 1;
+    background: #f8fbfa;
+}
+
+.chat-input button {
+    flex-shrink: 0;
+    transition: 0.2s;
+}
+
+.chat-input button:hover {
+    background: var(--teal-dark);
+}
+
+/* Tablet and mobile layout */
+@media (max-width: 900px) {
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .chat-section {
+        position: relative;
+        top: auto;
+        height: 520px;
+        max-height: none;
+        min-height: 450px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chat-section {
+        padding: 17px;
+        height: 480px;
+    }
+}

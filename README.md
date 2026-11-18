@@ -1,9 +1,3 @@
-## 📸 Application Screenshot
-
-
-### AI Chatbot
-![AI Chatbot](screenshots/ai-chatbot.png)
-
 # 🍎 LabelLens – AI Food Intelligence Assistant
 
 LabelLens is an AI-powered application that helps users understand food labels, restaurant menus, and homemade recipes through nutritional analysis and AI-driven insights.
